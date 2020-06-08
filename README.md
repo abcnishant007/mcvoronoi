@@ -31,29 +31,14 @@ $ pip3 install mcvoronoi
 - in main.py file *example code to use the module*:
 ```sh
 import numpy as np
-import matplotlib as mpl
-import matplotlib.cm as cm
-import matplotlib.pyplot as plt
 import mcvoronoi
-from sklearn.neighbors import KDTree
 
-node_lat_lon = {}
-node_dict = {}
-points = []
-node_id = []
-with open('example_latlon.csv') as f:
-    for row in f:
-        listed = row.strip().split(',')
-        if np.random.rand() < 0.1:
-            if int(listed[0]) not in node_dict:
-                points.append([float(listed[1]), float(listed[2])])
-                node_id.append(int(listed[0]))
 
-points = np.array(points) # np.random.uniform(size=[50, 2])
+points = np.random.rand(size=[10, 2])
 lat_lon_area, mean_percentage_error = voronoi_area(points) 
 ```
 
-### Input
+### Parameters to the function 
 
 | 	  Input Type	| 						Input					| 	Default_Value	|
 | ------------------| ----------------------------------------------|-------------------|
@@ -66,13 +51,13 @@ lat_lon_area, mean_percentage_error = voronoi_area(points)
 | integer			| NUM_COLORS									|	20				|
 
 
-### Output
+### Returned values
 
-|	  Output Type	| 						Output														|
+|	  Return Type	| 						Output														|
 | ------------------| ----------------------------------------------------------------------------------|
 | python dict		| key = (x,y), value = %age of area of the smallest rectangle enclosing all input_coordinates, len(lat_lon_area) is same as number of input_coordinates  			|
-| plot  			| line graph of %age error vs trial number_of_iterations							|
-| plot				| voronoi Diagram with pts & random pts closest to points marked in NUM_COLORS		|
+| plot  			| line graph of %age error vs trial number_of_iterations(saved as .png)							|
+| plot				| voronoi Diagram with pts & random pts closest to points marked in NUM_COLORS(saved as .png)		|
 | float				| mean % error_plot_enabled									 						|
 
 
