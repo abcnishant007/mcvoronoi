@@ -34,7 +34,7 @@ import numpy as np
 import mcvoronoi
 
 
-points = np.random.rand(size=[10, 2])
+points = np.random.rand(10, 2)  # a numpy array of 10 input co-ordinates
 lat_lon_area, mean_percentage_error = voronoi_area(points) 
 ```
 
@@ -55,10 +55,10 @@ lat_lon_area, mean_percentage_error = voronoi_area(points)
 
 |	  Return Type	| 						Output														|
 | ------------------| ----------------------------------------------------------------------------------|
-| python dict		| key = (x,y), value = %age of area of the smallest rectangle enclosing all input_coordinates, len(lat_lon_area) is same as number of input_coordinates  			|
-| plot  			| line graph of %age error vs trial number_of_iterations(saved as .png)							|
+| python dict		| key = (x,y), value = % of area of the smallest rectangle enclosing all input_coordinates, len(lat_lon_area) is same as number of input_coordinates  			|
+| plot  			| line graph of % error vs trial number (saved as .png)							|
 | plot				| voronoi Diagram with pts & random pts closest to points marked in NUM_COLORS(saved as .png)		|
-| float				| mean % error_plot_enabled									 						|
+| float				| mean % error at the last trial									 						|
 
 
 ### Credits
