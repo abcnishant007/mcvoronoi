@@ -35,14 +35,14 @@ import mcvoronoi
 
 
 points = np.random.rand(10, 2)  # a numpy array of 10 input co-ordinates
-lat_lon_area, mean_percentage_error = mcvoronoi.voronoi_area(points) 
+lat_lon_area, mean_percentage_error = mcvoronoi.voronoi_area(points, vornoi_plot_enabled=True, NUM_COLORS=5)
 ```
 
 ### Parameters to the function 
 
 | 	  Input Type	| 						Input					| 	Default_Value	|
 | ------------------| ----------------------------------------------|-------------------|
-| numpy array		| input_coordinates: x, y 		|	No default value|
+| numpy array		| input_coordinates		|	No default value|
 | integer 			| number_of_iterations 							|	50				|
 | integer			| number_of_trials_per_iteration 				|	10000			|
 | boolean			| error_plot_enabled 							|	True			|
@@ -78,3 +78,7 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 [MIT](https://choosealicense.com/licenses/mit/)
 
+
+### Output plots
+![mean_errors_plot](https://user-images.githubusercontent.com/9101260/84084935-0e5a7380-aa17-11ea-9519-7887a4a35cc0.png)
+![vornoi_colored_areas](https://user-images.githubusercontent.com/9101260/84084884-ed921e00-aa16-11ea-97b6-edfb4c98c397.png)
