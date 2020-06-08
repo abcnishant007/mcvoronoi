@@ -31,11 +31,11 @@ $ pip3 install mcvoronoi
 - in main.py file *example code to use the module*:
 ```sh
 import numpy as np
-import mcvoronoi
+import mcvoronoi 
 
 
 points = np.random.rand(10, 2)  # a numpy array of 10 input co-ordinates
-lat_lon_area, mean_percentage_error = voronoi_area(points) 
+lat_lon_area, mean_percentage_error = mcvoronoi.voronoi_area(points) 
 ```
 
 ### Parameters to the function 
