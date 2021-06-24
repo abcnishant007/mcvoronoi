@@ -1,4 +1,4 @@
-def voronoi_area(input_coordinates, number_of_iterations=50, number_of_trials_per_iteration=10000, error_plot_enabled=True, voronoi_plot_enabled=False, sizeOfMarker=0.5, NUM_COLORS=20):
+def voronoi_area(input_coordinates, number_of_iterations=50, metric="euclidean",number_of_trials_per_iteration=10000, error_plot_enabled=True, voronoi_plot_enabled=False, sizeOfMarker=0.5, NUM_COLORS=20):
   
     import matplotlib as mpl
     import matplotlib.cm as cm
@@ -18,7 +18,7 @@ def voronoi_area(input_coordinates, number_of_iterations=50, number_of_trials_pe
         
         np.random.seed(0)
         points = points
-        tree = KDTree(points)
+        tree = KDTree(points, metric=metric)
         percent_increase_x = 0
         percent_increase_y = 0
 
@@ -125,3 +125,8 @@ def voronoi_area(input_coordinates, number_of_iterations=50, number_of_trials_pe
         for key in areas_at_trial_number[number_of_iterations-1]:
             lat_lon_area[(input_coordinates[key][0], input_coordinates[key][1])] = areas_at_trial_number[number_of_iterations-1][key]*100/s
         return lat_lon_area, error_record[-1]
+
+
+import numpy as np
+points = np.random.rand(10, 2)  # a numpy array of 10 input co-ordinates
+lat_lon_area, mean_percentage_error = voronoi_area(points, voronoi_plot_enabled=True, NUM_COLORS=5)
